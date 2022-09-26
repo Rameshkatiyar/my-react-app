@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ArrayMap from './components/ArrayMap'
 
 class App extends Component {
   constructor() {
@@ -16,7 +16,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Hi {this.state.name}, work at {this.state.company}.
           </p>
@@ -36,6 +35,7 @@ class App extends Component {
           >
             Change with function
           </button>
+          <ArrayMap/>
         </header>
       </div>
     );
