@@ -7,11 +7,11 @@ class ArrayMap extends Component {
         this.state = {
             users: []
         }
-        console.log('Step 1')
+        console.log('Constructor')
     }
 
     componentDidMount() {
-        console.log('Step 3')
+        console.log('componentDidMount')
 
         fetch('https://jsonplaceholder.typicode.com/users')
         .then((resp) => resp.json())
@@ -26,11 +26,30 @@ class ArrayMap extends Component {
         );
     }
 
+    onSearchChange = (event) => {
+        const searchValue = event.target.value.toLocaleLowerCase();
+        console.log(searchValue);
+        const searchUsers = this.state.users.filter(
+            (user) => {
+                return user.name.toLocaleLowerCase().includes(searchValue);
+            }
+        );
+        if (searchUsers){
+            this.setState(() => {return {users: searchUsers}});
+        }
+    }
+
     render() {
-        console.log('Step 2')
+        console.log('render')
         return (
             <div>
-                <h1>Array Map:</h1>
+                <input 
+                    className="search-box" 
+                    type={'search'} 
+                    placeholder='Search user...' 
+                    onChange={this.onSearchChange}
+                />
+                <h1>Users:</h1>
                 {
                     this.state.users.map(
                         (user) => {
