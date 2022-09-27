@@ -1,4 +1,5 @@
 import { Component } from "react";
+import CardList from "./card-list/card-list.component";
 
 class ArrayMap extends Component {
 
@@ -40,7 +41,7 @@ class ArrayMap extends Component {
 
     render() {
         console.log('render')
-        const {users, searchUsers} = this.state;
+        const {searchUsers} = this.state;
         const {onSearchChange} = this;
 
         return (
@@ -52,13 +53,7 @@ class ArrayMap extends Component {
                     onChange={onSearchChange}
                 />
                 <h1>Users:</h1>
-                {
-                    searchUsers.map(
-                        (user) => {
-                            return <h2 key={user.id}>{user.id}. {user.name}</h2>
-                        }
-                    )
-                }
+                <CardList cards={searchUsers}/>
             </div>
         )
     }
