@@ -40,17 +40,20 @@ class ArrayMap extends Component {
 
     render() {
         console.log('render')
+        const {users, searchUsers} = this.state;
+        const {onSearchChange} = this;
+
         return (
             <div>
                 <input 
                     className="search-box" 
                     type={'search'} 
                     placeholder='Search user...' 
-                    onChange={this.onSearchChange}
+                    onChange={onSearchChange}
                 />
                 <h1>Users:</h1>
                 {
-                    this.state.searchUsers.map(
+                    searchUsers.map(
                         (user) => {
                             return <h2 key={user.id}>{user.id}. {user.name}</h2>
                         }
