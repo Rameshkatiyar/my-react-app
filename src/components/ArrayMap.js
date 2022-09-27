@@ -5,7 +5,8 @@ class ArrayMap extends Component {
     constructor() {
         super();
         this.state = {
-            users: []
+            users: [],
+            searchUsers: []
         }
         console.log('Constructor')
     }
@@ -17,7 +18,7 @@ class ArrayMap extends Component {
         .then((resp) => resp.json())
         .then(
             (usersData) => this.setState(
-                () => {return {users: usersData}},
+                () => {return {users: usersData, searchUsers: usersData}},
                 () => console.log(this.state)
             )
         )
@@ -34,9 +35,7 @@ class ArrayMap extends Component {
                 return user.name.toLocaleLowerCase().includes(searchValue);
             }
         );
-        if (searchUsers){
-            this.setState(() => {return {users: searchUsers}});
-        }
+        this.setState(() => {return {searchUsers}});
     }
 
     render() {
@@ -51,7 +50,7 @@ class ArrayMap extends Component {
                 />
                 <h1>Users:</h1>
                 {
-                    this.state.users.map(
+                    this.state.searchUsers.map(
                         (user) => {
                             return <h2 key={user.id}>{user.id}. {user.name}</h2>
                         }
