@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-import ArrayMap from './components/ArrayMap'
+import UserList from './components/user-list/user-list.component'
 
 class App extends Component {
   constructor() {
@@ -35,7 +35,7 @@ class App extends Component {
           >
             Change with function
           </button>
-          <ArrayMap/>
+          <UserList/>
         </header>
       </div>
     );

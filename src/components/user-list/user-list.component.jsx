@@ -1,7 +1,8 @@
 import { Component } from "react";
-import CardList from "./card-list/card-list.component";
+import CardList from "../card-list/card-list.component";
+import SearchBox from "../search-box/search-box.component";
 
-class ArrayMap extends Component {
+class UserList extends Component {
 
     constructor() {
         super();
@@ -46,12 +47,7 @@ class ArrayMap extends Component {
 
         return (
             <div>
-                <input 
-                    className="search-box" 
-                    type={'search'} 
-                    placeholder='Search user...' 
-                    onChange={onSearchChange}
-                />
+                <SearchBox className='user-search-box' onChangeHandler={onSearchChange}/>
                 <h1>Users:</h1>
                 <CardList cards={searchUsers}/>
             </div>
@@ -59,4 +55,4 @@ class ArrayMap extends Component {
     }
 }
 
-export default ArrayMap;
+export default UserList;
