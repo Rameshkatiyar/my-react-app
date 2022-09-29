@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import '../../App.css';
-import UserDetails from '../../components/user-details/user-details.component';
 import UserList from '../../components/user-list/user-list.component'
 
 class Home extends Component {
