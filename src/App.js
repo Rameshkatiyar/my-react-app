@@ -1,45 +1,14 @@
-import { Component } from 'react';
-import './App.css';
-import UserList from './components/user-list/user-list.component'
+import { Routes, Route } from "react-router-dom";
+import UserDetails from "./components/user-details/user-details.component";
+import Home from "./routes/home/home.component";
 
-class App extends Component {
-  constructor() {
-    super();
-    
-    this.state = {
-      name: 'Ramesh',
-      company: 'Google'
-    };
-  }
-
-  render(){
-    return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Hi {this.state.name}, work at {this.state.company}.
-          </p>
-          <button onClick={() => {
-            this.setState({name: 'Katiyar'})
-          }}>Change with object</button>
-          <br/>
-          <button 
-            onClick={() => {
-              this.setState(
-                () => {
-                  return {name: 'RK', company: 'ZM'}
-                },
-                () => {console.log(this.state)} //Callback function
-              );
-            }}
-          >
-            Change with function
-          </button>
-          <UserList/>
-        </header>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/user" element={<UserDetails/>}/>
+    </Routes>
+  )
 }
 
 export default App;

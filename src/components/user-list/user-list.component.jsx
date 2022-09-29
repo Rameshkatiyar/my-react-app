@@ -1,6 +1,5 @@
 import { Component } from "react";
 import CardList from "../card-list/card-list.component";
-import FuncSearchBox from "../search-box/func-search-box.component";
 import SearchBox from "../search-box/search-box.component";
 
 class UserList extends Component {
@@ -50,7 +49,6 @@ class UserList extends Component {
             <div>
                 <SearchBox className='user-search-box' onChangeHandler={onSearchChange}/>
                 <br/>
-                <FuncSearchBox/>
                 <h1>Users:</h1>
                 <CardList cards={searchUsers}/>
             </div>

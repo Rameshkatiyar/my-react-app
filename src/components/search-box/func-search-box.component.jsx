@@ -11,12 +11,16 @@ const FuncSearchBox = () => {
     }
 
     return (
-        <input
-        placeholder="func search box..."
-        className="search-box"
-        type={'search'}
-        onChange={onSearchChange}
-        />
+        <div>
+            <input
+            placeholder="func search box..."
+            className="search-box"
+            type={'search'}
+            onChange={onSearchChange}
+            />
+            <br/>
+            <h2>{searchValue}</h2>
+        </div>
     )
 }
 
